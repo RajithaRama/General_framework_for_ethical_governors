@@ -1,0 +1,10 @@
+tests:
+  Deontology: { module_name: deontology_test, number_of_outputs: 2, output_names: [rule_breaks, breaking_rule_ids]}
+  Utilitarian: { module_name: utilitarian_test, number_of_outputs: 2, output_names: [user_privacy, user_wellbeing]}
+test_order:
+  - Deontology
+  - Utilitarian
+
+
+
+

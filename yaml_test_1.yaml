@@ -1,4 +1,4 @@
-Environement: {time: day}
+Environment: {time: day}
 Stakeholders: 
   Patient_1: [bedroom, 22, 5, 3]
   robot: [bedroom]
