@@ -2,3 +2,6 @@ Environement: {night: day}
 Stakeholders: 
   Patient_1: [bedroom, 22, 5, 3]
   robot: [bedroom]
+suggested_actions:
+  - follow user
+  - wait

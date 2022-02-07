@@ -18,7 +18,7 @@ class Blackboard:
         for key in self.conf["test_order"]:
             self.test_modules[key] = (importlib.import_module(self.conf["tests"][key]["module_name"],
                                                              package="ethical_tests"))
-        self.data = data_structure.Data(self.load_yaml(input_yaml))
+        self.data = data_structure.Data(self.load_yaml(input_yaml), self.conf)
 
         self.test_modules["Utilitarian"].bar()
         self.test_modules["Deontology"].foo()
