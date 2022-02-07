@@ -12,5 +12,7 @@ class Data:
         for key in conf["tests"].keys():
             columns.append(conf["tests"][key]["output_names"])
         columns = [item for sublist in columns for item in sublist]
+        columns.append('score')
+
         self.table_df = pd.DataFrame(columns=columns, index=self.actions)
         print(self.table_df)

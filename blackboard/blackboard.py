@@ -6,7 +6,6 @@ sys.path.append("./ethical_tests")
 
 import data_structure
 
-
 CONF_FILE = "../conf.yaml"
 
 
@@ -17,11 +16,22 @@ class Blackboard:
         self.test_modules = {}
         for key in self.conf["test_order"]:
             self.test_modules[key] = (importlib.import_module(self.conf["tests"][key]["module_name"],
-                                                             package="ethical_tests"))
+                                                              package="ethical_tests"))
         self.data = data_structure.Data(self.load_yaml(input_yaml), self.conf)
 
-        self.test_modules["Utilitarian"].bar()
-        self.test_modules["Deontology"].foo()
+        # self.test_modules["Utilitarian"].bar()
+        # self.test_modules["Deontology"].foo()
+
+    def run_tests(self, order=None):
+        if order is None:
+            order = self.conf["test_order"]
+
+        for test in order:
+            test_class = getattr(self.test_modules[test], self.conf["tests"][test]["class_name"])
+            test_i = test_class(self.conf["tests"][test])
+            test_i.run_test()
+            results = test_i.get_results()
+            # TODO: get results and add them to the data structure
 
     def load_yaml(self, input_yaml):
         with open(input_yaml, 'r') as fp:
@@ -31,3 +41,4 @@ class Blackboard:
 
 if __name__ == "__main__":
     blackboard = Blackboard("../yaml_test_1.yaml")
+    blackboard.run_tests()
