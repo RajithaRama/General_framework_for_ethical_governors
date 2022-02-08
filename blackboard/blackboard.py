@@ -42,10 +42,18 @@ class Blackboard:
             test_i = test_class(self.conf["tests"][test])
             test_i.run_test(self.data)
             results = test_i.get_results()
-            self.data.put_table_data(results)
+            for action, values in results.items():
+                for column, value in values.items():
+                    self.data.put_table_data(action, column, value)
 
     def recommend(self):
         self.evaluator.evaluate(self.data)
+        results = self.evaluator.get_results()
+        for action, score in results.items():
+            self.data.put_table_data(action, "score", value=score)
+
+        recommendation = self.data.get_max_index("score")
+        return recommendation
         pass
 
     def load_yaml(self, input_yaml):
@@ -57,4 +65,4 @@ class Blackboard:
 if __name__ == "__main__":
     blackboard = Blackboard("../yaml_test_1.yaml")
     blackboard.run_tests()
-    blackboard.recommend()
+    print(blackboard.recommend())

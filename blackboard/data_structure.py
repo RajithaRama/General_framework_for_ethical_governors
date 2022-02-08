@@ -34,3 +34,9 @@ class Data:
             for column, value in values.items():
                 self.table_df.loc[action, column] = value
         return
+
+    def put_table_data(self, action, column, value):
+        self.table_df.loc[action, column] = value
+
+    def get_max_index(self, column):
+        return self.table_df[column].idxmax()
