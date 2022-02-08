@@ -29,9 +29,9 @@ class Blackboard:
         for test in order:
             test_class = getattr(self.test_modules[test], self.conf["tests"][test]["class_name"])
             test_i = test_class(self.conf["tests"][test])
-            test_i.run_test()
+            test_i.run_test(self.data)
             results = test_i.get_results()
-            # TODO: get results and add them to the data structure
+            self.data.put_table_data(results)
 
     def load_yaml(self, input_yaml):
         with open(input_yaml, 'r') as fp:
