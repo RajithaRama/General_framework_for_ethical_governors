@@ -54,7 +54,6 @@ class Blackboard:
 
         recommendation = self.data.get_max_index("score")
         return recommendation
-        pass
 
     def load_yaml(self, input_yaml):
         with open(input_yaml, 'r') as fp:
