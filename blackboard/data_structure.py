@@ -39,4 +39,5 @@ class Data:
         self.table_df.loc[action, column] = value
 
     def get_max_index(self, column):
-        return self.table_df[column].idxmax()
+        column_value = self.table_df[column]
+        return column_value[column_value == column_value.max()].index.to_list()
