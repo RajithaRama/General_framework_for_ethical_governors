@@ -4,6 +4,7 @@ tests:
 test_order:
   - Deontology
   - Utilitarian
+evaluator: {module_name: deontology_evaluator, class_name: DeontologyEvaluator}
 
 
 

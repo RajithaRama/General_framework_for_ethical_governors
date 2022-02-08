@@ -19,6 +19,8 @@ class Blackboard:
                                                               package="ethical_tests"))
         self.data = data_structure.Data(self.load_yaml(input_yaml), self.conf)
 
+        # TODO: add evaluator here and call in the in recommend method.
+
         # self.test_modules["Utilitarian"].bar()
         # self.test_modules["Deontology"].foo()
 
@@ -32,6 +34,10 @@ class Blackboard:
             test_i.run_test(self.data)
             results = test_i.get_results()
             self.data.put_table_data(results)
+
+    def recommend(self):
+        # TODO: call evaluator here.
+        pass
 
     def load_yaml(self, input_yaml):
         with open(input_yaml, 'r') as fp:
