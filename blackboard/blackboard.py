@@ -2,7 +2,8 @@ import yaml
 import importlib
 import sys
 
-sys.path.append("./ethical_tests")
+sys.path.append("ethical_tests")
+sys.path.append("final_evaluator")
 
 import data_structure
 
@@ -13,13 +14,21 @@ class Blackboard:
 
     def __init__(self, input_yaml):
         self.conf = self.load_yaml(CONF_FILE)
+
+        # Loading test modules
         self.test_modules = {}
         for key in self.conf["test_order"]:
             self.test_modules[key] = (importlib.import_module(self.conf["tests"][key]["module_name"],
                                                               package="ethical_tests"))
+
+        # Loading data
         self.data = data_structure.Data(self.load_yaml(input_yaml), self.conf)
 
-        # TODO: add evaluator here and call in the in recommend method.
+        # Loading final_evaluator
+        self.evaluator_module = importlib.import_module(self.conf["evaluator"]["module_name"],
+                                                        package="final_evaluator")
+        evaluator_class = getattr(self.evaluator_module, self.conf["evaluator"]["class_name"])
+        self.evaluator = evaluator_class()
 
         # self.test_modules["Utilitarian"].bar()
         # self.test_modules["Deontology"].foo()
@@ -36,7 +45,7 @@ class Blackboard:
             self.data.put_table_data(results)
 
     def recommend(self):
-        # TODO: call evaluator here.
+        self.evaluator.evaluate(self.data)
         pass
 
     def load_yaml(self, input_yaml):
@@ -48,3 +57,4 @@ class Blackboard:
 if __name__ == "__main__":
     blackboard = Blackboard("../yaml_test_1.yaml")
     blackboard.run_tests()
+    blackboard.recommend()
