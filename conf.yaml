@@ -1,5 +1,5 @@
 tests:
-  Deontology: { module_name: deontology_test, class_name: DeontologyTest, number_of_outputs: 2, output_names: [is_breaking_rule, breaking_rule_ids]}
+  Deontology: { module_name: deontology_test, class_name: ActDeontologyTest, number_of_outputs: 2, output_names: [is_breaking_rule, breaking_rule_ids]}
   Utilitarian: { module_name: utilitarian_test, class_name: UtilitarianTest, number_of_outputs: 2, output_names: [user_privacy, user_wellbeing]}
 test_order:
   - Deontology

@@ -4,8 +4,10 @@ import sys
 
 sys.path.append("ethical_tests")
 sys.path.append("final_evaluator")
+sys.path.append("utility_functions")
 
 import data_structure
+from utility_functions import u_func
 
 CONF_FILE = "../conf.yaml"
 
@@ -13,7 +15,7 @@ CONF_FILE = "../conf.yaml"
 class Blackboard:
 
     def __init__(self, input_yaml):
-        self.conf = self.load_yaml(CONF_FILE)
+        self.conf = u_func.load_yaml(CONF_FILE)
 
         # Loading test modules
         self.test_modules = {}
@@ -22,7 +24,7 @@ class Blackboard:
                                                               package="ethical_tests"))
 
         # Loading data
-        self.data = data_structure.Data(self.load_yaml(input_yaml), self.conf)
+        self.data = data_structure.Data(u_func.load_yaml(input_yaml), self.conf)
 
         # Loading final_evaluator
         self.evaluator_module = importlib.import_module(self.conf["evaluator"]["module_name"],
@@ -47,6 +49,7 @@ class Blackboard:
                     self.data.put_table_data(action, column, value)
 
     def recommend(self):
+        print(self.data.table_df)
         self.evaluator.evaluate(self.data)
         results = self.evaluator.get_results()
         for action, score in results.items():
@@ -55,13 +58,8 @@ class Blackboard:
         recommendation = self.data.get_max_index("score")
         return recommendation
 
-    def load_yaml(self, input_yaml):
-        with open(input_yaml, 'r') as fp:
-            yaml_data = yaml.load(fp, Loader=yaml.FullLoader)
-        return yaml_data
-
 
 if __name__ == "__main__":
-    blackboard = Blackboard("../yaml_test_1.yaml")
+    blackboard = Blackboard("../Lying_dilemma.yaml")
     blackboard.run_tests()
     print(blackboard.recommend())
