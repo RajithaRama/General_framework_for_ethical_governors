@@ -1,10 +1,10 @@
 # TO-DO
-import ethical_test
+from ethical_tests import ethical_test
 import yaml
+
 
 # def foo():
 #     print("foo")
-
 
 
 def load_yaml(input_yaml):

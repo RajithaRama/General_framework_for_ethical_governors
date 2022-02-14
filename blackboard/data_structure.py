@@ -29,11 +29,11 @@ class Data:
     def get_table_data(self, action, column):
         return self.table_df.loc[action, column]
 
-    def put_table_data(self, results):
-        for action, values in results.items():
-            for column, value in values.items():
-                self.table_df.loc[action, column] = value
-        return
+    # def put_table_data(self, results):
+    #     for action, values in results.items():
+    #         for column, value in values.items():
+    #             self.table_df.loc[action, column] = value
+    #     return
 
     def put_table_data(self, action, column, value):
         self.table_df.loc[action, column] = value

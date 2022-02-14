@@ -1,0 +1,5 @@
+tests:
+  Deontology: { module_name: deontology_test, class_name: ActDeontologyTest, number_of_outputs: 2, output_names: [is_breaking_rule, breaking_rule_ids], extra_input:}
+test_order:
+  - Deontology
+evaluator: {module_name: deontology_evaluator, class_name: DeontologyEvaluator}
