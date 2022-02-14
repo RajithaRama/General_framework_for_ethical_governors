@@ -6,10 +6,10 @@ import scheduler
 
 # sys.path.append("ethical_tests")
 # sys.path.append("final_evaluator")
-# sys.path.append("utility_functions")
+# sys.path.append("common_utils")
 
 import data_structure
-from utility_functions import u_func
+from common_utils import u_func
 from scheduler import round_robin_scheduler
 
 CONF_FILE = "../conf.yaml"
@@ -51,7 +51,7 @@ class Blackboard:
                     self.data.put_table_data(action, column, value)
 
     def recommend(self):
-        print(self.data.table_df)
+        print(self.data._table_df)
         self.evaluator.evaluate(self.data)
         results = self.evaluator.get_results()
         for action, score in results.items():

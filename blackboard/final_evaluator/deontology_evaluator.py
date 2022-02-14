@@ -8,7 +8,7 @@ class DeontologyEvaluator(evaluator.Evaluator):
 
     def evaluate(self, data):
         for action in data.get_actions():
-            if data.table_df.loc[action]['is_breaking_rule']:
+            if data.get_table_data(action, 'is_breaking_rule'):
                 self.score[action] = 0
             else:
                 self.score[action] = 1
