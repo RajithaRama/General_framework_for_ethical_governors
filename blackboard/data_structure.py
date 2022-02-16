@@ -3,12 +3,12 @@ import pandas as pd
 
 class Data:
 
-    def __init__(self, loaded_yaml, conf):
-        self._environment = loaded_yaml['Environment']
-        self._actions = [Action(i) for i in loaded_yaml['Suggested_actions']]
-        self._stakeholders = loaded_yaml['Stakeholders']
+    def __init__(self, data_input, conf):
+        self._environment = data_input['Environment']
+        self._actions = [Action(i) for i in data_input['Suggested_actions']]
+        self._stakeholders = data_input['Stakeholders']
 
-        self._other_inputs = loaded_yaml['Other_inputs']
+        self._other_inputs = data_input['Other_inputs']
 
         columns = []
         for key in conf["tests"].keys():

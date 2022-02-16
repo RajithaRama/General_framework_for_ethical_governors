@@ -25,8 +25,18 @@ class Blackboard:
         for key in self.conf["test_order"]:
             self.test_modules[key] = importlib.import_module("ethical_tests."+ self.conf["tests"][key]["module_name"])
 
+        # Loading loader module
+        self.data_loader_module = importlib.import_module("data_loader." + self.conf["data_loader"]["module_name"])
+        data_loader_class = getattr(self.data_loader_module, self.conf["data_loader"]["class_name"])
+        self.data_loader = data_loader_class()
+
         # Loading data
-        self.data = data_structure.Data(u_func.load_yaml(input_yaml), self.conf)
+        self.data = data_structure.Data(self.data_loader.load(input_yaml), self.conf)
+
+        # Loading scheduler
+        self.scheduler_module = importlib.import_module("scheduler." + self.conf["scheduler"]["module_name"])
+        scheduler_class = getattr(self.scheduler_module, self.conf["scheduler"]["class_name"])
+        self.scheduler = scheduler_class(self.conf)
 
         # Loading final_evaluator
         self.evaluator_module = importlib.import_module("final_evaluator." + self.conf["evaluator"]["module_name"])
@@ -37,11 +47,7 @@ class Blackboard:
         # self.test_modules["Deontology"].foo()
 
     def run_tests(self, order=None):
-        if order is None:
-            order = self.conf["test_order"]
-
-        scheduler = round_robin_scheduler.RoundRobin(conf=self.conf)
-        for test in scheduler.next():
+        for test in self.scheduler.next():
             test_class = getattr(self.test_modules[test], self.conf["tests"][test]["class_name"])
             test_i = test_class(self.conf["tests"][test])
             test_i.run_test(self.data)
