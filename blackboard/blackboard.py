@@ -57,7 +57,8 @@ class Blackboard:
         for action, score in results.items():
             self.data.put_table_data(action, "score", value=score)
 
-        recommendation = self.data.get_max_index("score")
+        recommendation = [i.value for i in self.data.get_max_index("score")]
+
         return recommendation
 
 
