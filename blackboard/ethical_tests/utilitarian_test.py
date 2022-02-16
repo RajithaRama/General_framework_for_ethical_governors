@@ -22,8 +22,8 @@ class UtilitarianTest(ethical_test.EthicalTest):
                            danger_location=environment_data["danger"], danger_radius=environment_data["danger_radius"])
 
         for action in data.get_actions():
-            action_value = tuple(action.value)
-            is_not_obedient, is_harmful_human, is_harmful_robot = world.outcome(action_value)
+            action_value = action.value
+            is_harmful_human, is_harmful_robot, is_not_obedient = world.outcome(action_value)
             obedience = -1 if is_not_obedient else 1
             safety_human = 0 if is_harmful_human else 1
             safety_robot = 0 if is_harmful_robot else 1
@@ -68,8 +68,11 @@ class WorldModel:
         return harm_human, harm_robot, disobeying_robot
 
     def _can_stop_human(self, temp_goal):
-        return True if self.robot.time_to_new_location(temp_goal) <= self.human.time_to_new_location(temp_goal) else \
-            False
+        time_robot = self.robot.time_to_new_location(temp_goal)
+        time_human = self.human.time_to_new_location(temp_goal)
+        shortest_distant_to_goal = self.human.simulate_path(temp_goal)
+        return True if (time_robot <= time_human) and \
+                       (shortest_distant_to_goal < 0.5) else False
 
 
 class HumanModel:
@@ -80,11 +83,11 @@ class HumanModel:
         self.speed = 1  # meter for step
         self.human_state = state
 
-    def _simulate_path(self, danger):
-        """Shortest distance to the path from the danger"""
+    def simulate_path(self, goal):
+        """Shortest distance to the human path from a location"""
         shortest_distance_to_danger = abs(
-            (self.location[0] - self.initial_location[0]) * (self.initial_location[1] - danger[1])
-            - (self.initial_location[0] - danger[0]) * (self.location[1] - self.initial_location[1])) / sqrt(
+            (self.location[0] - self.initial_location[0]) * (self.initial_location[1] - goal[1])
+            - (self.initial_location[0] - goal[0]) * (self.location[1] - self.initial_location[1])) / sqrt(
             (self.location[0] - self.initial_location[0]) ** 2
             + (self.location[1] - self.initial_location[1]) ** 2)
 
@@ -95,7 +98,7 @@ class HumanModel:
             (robot_location[1] - self.location[1]) ** 2 + (robot_location[0] - self.location[0]) ** 2)
         distance_to_danger = sqrt((danger[1] - self.location[1]) ** 2 + (danger[0] - self.location[0]) ** 2)
 
-        if self._simulate_path(danger) < danger_radius and self.human_state == "walking":
+        if self.simulate_path(danger) < danger_radius and self.human_state == "walking":
             if distance_to_robot < 1 and distance_to_danger > 1:
                 return False
             else:
@@ -114,7 +117,7 @@ class RobotModel:
     def __init__(self, current_location):
         self.location = current_location
         # self.initial_location = initial_location
-        self.speed = 2  # meter for step
+        self.speed = 2.5  # meter for step
 
     def time_to_new_location(self, x):
         distance = sqrt((x[1] - self.location[1]) ** 2 + (x[0] - self.location[0]) ** 2)
