@@ -1,7 +1,7 @@
 data_loader: {module_name: yaml_loader, class_name: YAMLLoader}
 tests:
-  Utilitarian: {module_name: utilitarian_test, class_name: UtilitarianTest, number_of_outputs: 3, output_names: [obedience, user_safety, robot_safety]}
+  Utilitarian: {module_name: obedience_utilitarian_test, class_name: UtilitarianTest, number_of_outputs: 3, output_names: [obedience, user_safety, robot_safety]}
 test_order:
   - Utilitarian
-evaluator: {module_name: utilitarian_evaluator, class_name: UtilitarianEvaluator}
+evaluator: {module_name: obediance_utilitarian_evaluator, class_name: UtilitarianEvaluator}
 scheduler: {module_name: round_robin_scheduler, class_name: RoundRobin}

@@ -10,7 +10,6 @@ import scheduler
 
 import data_structure
 from common_utils import u_func
-from scheduler import round_robin_scheduler
 
 CONF_FILE = "../conf.yaml"
 
