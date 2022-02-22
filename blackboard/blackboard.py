@@ -13,11 +13,15 @@ from common_utils import u_func
 
 CONF_FILE = "../conf.yaml"
 
+def load_yaml(input_yaml):
+    with open(input_yaml, 'r') as fp:
+        yaml_data = yaml.load(fp, Loader=yaml.FullLoader)
+    return yaml_data
 
 class Blackboard:
 
     def __init__(self, input_yaml, conf=CONF_FILE):
-        self.conf = u_func.load_yaml(conf)
+        self.conf = load_yaml(conf)
 
         # Loading test modules
         self.test_modules = {}
@@ -45,7 +49,7 @@ class Blackboard:
         # self.test_modules["Utilitarian"].bar()
         # self.test_modules["Deontology"].foo()
 
-    def run_tests(self, order=None):
+    def run_tests(self):
         for test in self.scheduler.next():
             test_class = getattr(self.test_modules[test], self.conf["tests"][test]["class_name"])
             test_i = test_class(self.conf["tests"][test])
@@ -69,6 +73,7 @@ class Blackboard:
 
 if __name__ == "__main__":
     # blackboard = Blackboard("../Lying_dilemma.yaml", "lying_dilemma_deontology_conf.yaml")
-    blackboard = Blackboard("../obedience_dilemma.yaml", "obedience_dilemma_utilitarian_conf.yaml")
+    # blackboard = Blackboard("../obedience_dilemma.yaml", "obedience_dilemma_utilitarian_conf.yaml")
+    blackboard = Blackboard("../speeding_dilemma.yaml", "speeding_dilemma_conf.yaml")
     blackboard.run_tests()
     print(blackboard.recommend())
