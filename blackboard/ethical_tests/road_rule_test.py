@@ -72,7 +72,7 @@ class RoadRuleTest(ethical_test.EthicalTest):
                 if type(item) == list:
                     if left and operation:
                         right = self.solve(data, item)
-                    elif operation and not left:
+                    elif operation and left is None:
                         raise ValueError("Error in rule input")
                     else:
                         left = self.solve(data, item)
@@ -126,8 +126,8 @@ class RoadRuleTest(ethical_test.EthicalTest):
 
     def run_test(self, data):
         for action in data.get_actions():
-            if action is 'take_control':
-                self.output[action] = [False, []]
+            if action.value == 'take_control':
+                self.output[action] = {self.output_names[0]: False, self.output_names[1]: []}
             else:
                 permissible = True
                 ids_of_broken_rules = []
@@ -135,5 +135,4 @@ class RoadRuleTest(ethical_test.EthicalTest):
                     if not rule.get_permissibility(data):
                         permissible = False
                         ids_of_broken_rules.append(id)
-                self.output[action] = { self.output_names[0]: permissible, self.output_names[1]: ids_of_broken_rules }
-        pass
+                self.output[action] = {self.output_names[0]: not permissible, self.output_names[1]: ids_of_broken_rules}

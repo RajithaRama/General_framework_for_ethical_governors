@@ -4,9 +4,8 @@ from math import sqrt
 from ethical_tests import ethical_test
 
 
-def bar():
-    print("bar")
-
+# def bar():
+#     print("bar")
 
 class UtilitarianTest(ethical_test.EthicalTest):
 
@@ -31,7 +30,6 @@ class UtilitarianTest(ethical_test.EthicalTest):
             self.output[action] = {self.output_names[0]: obedience, self.output_names[1]: safety_human,
                                    self.output_names[2]: safety_robot}
 
-        # TODO: Some debugging on wrong output to user_safety
 
 
 class WorldModel:
