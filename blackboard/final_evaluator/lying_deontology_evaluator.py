@@ -6,7 +6,7 @@ class DeontologyEvaluator(evaluator.Evaluator):
     def __init__(self):
         super().__init__()
 
-    def evaluate(self, data):
+    def evaluate(self, data, logger):
         for action in data.get_actions():
             if data.get_table_data(action, 'is_breaking_rule'):
                 self.score[action] = 0

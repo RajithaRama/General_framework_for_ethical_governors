@@ -6,7 +6,7 @@ class UtilitarianTest(ethical_test.EthicalTest):
     def __init__(self, test_data):
         super().__init__(test_data)
 
-    def run_test(self, data):
+    def run_test(self, data, logger):
         for action in data.get_actions():
             social_utility = self.get_social_behaviour_utility(data, action)
             stakeholder_wellbeing = self.get_stakeholder_wellbeing_utility(data, action)

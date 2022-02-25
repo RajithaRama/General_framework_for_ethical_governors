@@ -1,10 +1,14 @@
 import pandas as pd
 import yaml
 
+pd.set_option("display.max_rows", None, "display.max_columns", None)
+
+
 def load_yaml(input_yaml):
     with open(input_yaml, 'r') as fp:
         yaml_data = yaml.load(fp, Loader=yaml.FullLoader)
     return yaml_data
+
 
 class Data:
 
@@ -22,7 +26,7 @@ class Data:
         columns.append('score')
 
         self._table_df = pd.DataFrame(columns=columns, index=self._actions)
-        print(self._table_df)
+        # print(self._table_df)
 
     def get_environment_data(self):
         return self._environment
@@ -51,6 +55,9 @@ class Data:
     def get_max_index(self, column):
         column_value = self._table_df[column]
         return column_value[column_value == column_value.max()].index.to_list()
+
+    def log_table(self, logger):
+        logger.info('\n' + str(self._table_df))
 
 
 class Action:

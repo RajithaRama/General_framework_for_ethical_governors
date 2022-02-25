@@ -8,7 +8,7 @@ class EthicalTest(ABC):
         self.output = {}
 
     @abstractmethod
-    def run_test(self, data):
+    def run_test(self, data, logger):
         """ run test for each action using the data available. Then populate the self.output dictionary as follows.
             - action 1:
                 - column 1: data 1

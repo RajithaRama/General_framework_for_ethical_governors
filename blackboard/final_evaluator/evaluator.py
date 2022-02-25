@@ -7,7 +7,7 @@ class Evaluator(ABC):
         self.score = {}
 
     @abstractmethod
-    def evaluate(self, data):
+    def evaluate(self, data, logger):
         """ Should evaluate the actions using the data in the blackboard and write the results to the self.score
             dictionary as follows
                 - action 1: score

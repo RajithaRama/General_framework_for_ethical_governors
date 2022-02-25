@@ -124,7 +124,7 @@ class RoadRuleTest(ethical_test.EthicalTest):
             # print(id, variables, condition, perm)
             self.rules[id] = self.rule(variables, condition, perm)
 
-    def run_test(self, data):
+    def run_test(self, data, logger):
         for action in data.get_actions():
             if action.value == 'take_control':
                 self.output[action] = {self.output_names[0]: False, self.output_names[1]: []}

@@ -34,7 +34,7 @@ class ActDeontologyTest(ethical_test.EthicalTest):
         for id, action, perm in load_yaml("./ethical_tests/conf/act_deontology_rules.yaml"):
             self.rules[id] = self.rule(action, perm)
 
-    def run_test(self, data):
+    def run_test(self, data, logger):
         for action in data.get_actions():
             permissible = True
             ids_of_broken_rules = []

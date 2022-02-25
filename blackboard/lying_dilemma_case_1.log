@@ -1,0 +1,24 @@
+2022-02-25 00:56:02,228 - blackboard - Loaded the data to the blackboard.
+2022-02-25 00:56:02,230 - data_structure - 
+          is_breaking_rule breaking_rule_ids score
+lying                  NaN               NaN   NaN
+not lying              NaN               NaN   NaN
+2022-02-25 00:56:02,231 - blackboard - Starting tests...
+2022-02-25 00:56:02,232 - blackboard - Running Deontology test.
+2022-02-25 00:56:02,232 - blackboard - Blackboard updated with Deontology test results.
+2022-02-25 00:56:02,234 - data_structure - 
+          is_breaking_rule breaking_rule_ids score
+lying                False                []   NaN
+not lying            False                []   NaN
+2022-02-25 00:56:02,234 - blackboard - Testing completed.
+2022-02-25 00:56:02,236 - data_structure - 
+          is_breaking_rule breaking_rule_ids score
+lying                False                []   NaN
+not lying            False                []   NaN
+2022-02-25 00:56:02,236 - blackboard - Calling the final evaluator.
+2022-02-25 00:56:02,236 - blackboard - Evaluation completed.
+2022-02-25 00:56:02,238 - data_structure - 
+          is_breaking_rule breaking_rule_ids score
+lying                False                []     1
+not lying            False                []     1
+2022-02-25 00:56:02,239 - blackboard - Recommended actions: ['lying', 'not lying']

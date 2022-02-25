@@ -12,7 +12,7 @@ class UtilitarianTest(ethical_test.EthicalTest):
     def __init__(self, test_data):
         super().__init__(test_data)
 
-    def run_test(self, data):
+    def run_test(self, data, logger):
         robot_data = data.get_stakeholders_data()["robot"]
         human_data = data.get_stakeholders_data()["user"]
         environment_data = data.get_environment_data()
