@@ -1,7 +1,9 @@
 # from typing import List
-from ethical_tests import ethical_test
+import blackboard.ethicaltests.ethical_test as ethical_test
 import yaml
-import string
+import os
+
+dirname = os.path.dirname(__file__)
 
 
 def load_yaml(input_yaml):
@@ -120,19 +122,30 @@ class RoadRuleTest(ethical_test.EthicalTest):
     def __init__(self, test_data):
         super().__init__(test_data)
         self.rules = {}
-        for id, variables, condition, perm in load_yaml("./ethical_tests/conf/road_rules.yaml"):
+        for id, variables, condition, perm in load_yaml(os.path.join(dirname, "./conf/road_rules.yaml")):
             # print(id, variables, condition, perm)
             self.rules[id] = self.rule(variables, condition, perm)
 
     def run_test(self, data, logger):
+        logger.info('Running ' + __name__ + '...')
         for action in data.get_actions():
+            logger.info('Testing action: ' + action.value)
+            permissible = True
+            ids_of_broken_rules = []
             if action.value == 'take_control':
-                self.output[action] = {self.output_names[0]: False, self.output_names[1]: []}
-            else:
                 permissible = True
-                ids_of_broken_rules = []
+                # self.output[action] = {self.output_names[0]: False, self.output_names[1]: []}
+                # logger.info('')
+            else:
                 for id, rule in self.rules.items():
                     if not rule.get_permissibility(data):
                         permissible = False
                         ids_of_broken_rules.append(id)
-                self.output[action] = {self.output_names[0]: not permissible, self.output_names[1]: ids_of_broken_rules}
+            if permissible:
+                logger.info('Action "' + action.value + '" : Permissible')
+            else:
+                logger.info('Action "' + action.value + '" : Not permissible since it broke rules ' + str(ids_of_broken_rules))
+
+            self.output[action] = {self.output_names[0]: not permissible, self.output_names[1]: ids_of_broken_rules}
+
+        logger.info(__name__ + ' finished.')

@@ -1,0 +1,15 @@
+loader: {module_name: yaml_loader, class_name: YAMLLoader}
+
+tests:
+  Deontological: {module_name: road_rule_test, class_name: RoadRuleTest, number_of_outputs: 2, output_names: [is_rule_broken, broken_rules]}
+  Utilitarian: {module_name: speeding_utilitarian_test, class_name: UtilitarianTest, number_of_outputs: 3, output_names: [social, stakeholder_wellbeing, driver_autonomy]}
+
+evaluator: {module_name: utilitarian_speeding_evaluator, class_name: UtilitarianEvaluator}
+
+scheduler: {module_name: round_robin_scheduler, class_name: RoundRobin}
+
+test_order:
+  - Deontological
+  - Utilitarian
+
+log_file: speeding_dilemma_case_1.log

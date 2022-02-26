@@ -1,7 +1,7 @@
 # To-Do:
 from math import sqrt
 
-from ethical_tests import ethical_test
+import blackboard.ethicaltests.ethical_test as ethical_test
 
 
 # def bar():
@@ -13,6 +13,7 @@ class UtilitarianTest(ethical_test.EthicalTest):
         super().__init__(test_data)
 
     def run_test(self, data, logger):
+        logger.info('Running ' + __name__ + '...')
         robot_data = data.get_stakeholders_data()["robot"]
         human_data = data.get_stakeholders_data()["user"]
         environment_data = data.get_environment_data()
@@ -21,15 +22,31 @@ class UtilitarianTest(ethical_test.EthicalTest):
                            danger_location=environment_data["danger"], danger_radius=environment_data["danger_radius"])
 
         for action in data.get_actions():
+            logger.info('Testing action: ' + str(action.value))
             action_value = action.value
+            logger.info('Simulating action..')
             is_harmful_human, is_harmful_robot, is_not_obedient = world.outcome(action_value)
+            if is_harmful_human:
+                logger.info('Harm to human detected.')
+            if is_harmful_robot:
+                logger.info('Harm to robot detected.')
+            if is_not_obedient:
+                logger.info('Robot disobedience event detected.')
+            # logger.info()
+            logger.info('simulation_completed')
+
             obedience = -1 if is_not_obedient else 1
             safety_human = 0 if is_harmful_human else 1
             safety_robot = 0 if is_harmful_robot else 1
 
+            logger.info('User safety utility for action ' + str(action.value) + ': ' + str(safety_human))
+            logger.info('Robot safety utility for action ' + str(action.value) + ': ' + str(safety_robot))
+            logger.info('Robot obedience utility for action ' + str(action.value) + ': ' + str(obedience))
+
             self.output[action] = {self.output_names[0]: obedience, self.output_names[1]: safety_human,
                                    self.output_names[2]: safety_robot}
 
+        logger.info(__name__ + ' finished.')
 
 
 class WorldModel:

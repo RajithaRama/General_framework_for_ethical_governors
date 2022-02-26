@@ -1,4 +1,4 @@
-from final_evaluator import evaluator
+import blackboard.evaluator.evaluator as evaluator
 
 
 class UtilitarianEvaluator(evaluator.Evaluator):
@@ -7,6 +7,7 @@ class UtilitarianEvaluator(evaluator.Evaluator):
         super().__init__()
 
     def evaluate(self, data, logger):
+        logger.info(__name__ + ' started evaluation using the data in the blackboard.')
         for action in data.get_actions():
             desirability = 0
             if data.get_table_data(action, "user_safety") == 0:
@@ -15,7 +16,7 @@ class UtilitarianEvaluator(evaluator.Evaluator):
             else:
                 desirability = 2 * data.get_table_data(action, "user_safety") + 0.75 * data.get_table_data(action,
                                                                                                            "robot_safety")
-
+            logger.info('Desirability of action ' + str(action.value) + ' : ' + str(desirability))
             self.score[action] = desirability
 
-        print("evaluated")
+        # print("evaluated")

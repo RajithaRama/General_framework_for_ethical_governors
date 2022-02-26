@@ -1,4 +1,4 @@
-from scheduler import scheduler
+import blackboard.scheduler.scheduler as scheduler
 # import scheduler
 
 

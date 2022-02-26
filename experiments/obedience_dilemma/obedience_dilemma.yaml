@@ -1,0 +1,9 @@
+Environment: {danger: [4,4], danger_radius: 1, user_init_location: [0, 5]}
+Stakeholders: 
+  user: [[1,4.75], "walking"] # [user location, user state]
+  robot: [[0,1], [4,1]] # [robot location, robot goal]
+Suggested_actions:
+  - [4,1]
+  - [2,4.5]
+  - [3,4.25]
+Other_inputs: None

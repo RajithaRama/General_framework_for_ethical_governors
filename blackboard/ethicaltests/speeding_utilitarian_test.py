@@ -1,4 +1,4 @@
-from ethical_tests import ethical_test
+import blackboard.ethicaltests.ethical_test as ethical_test
 
 
 class UtilitarianTest(ethical_test.EthicalTest):
@@ -7,13 +7,26 @@ class UtilitarianTest(ethical_test.EthicalTest):
         super().__init__(test_data)
 
     def run_test(self, data, logger):
+        logger.info('Running ' + __name__ + '...')
         for action in data.get_actions():
-            social_utility = self.get_social_behaviour_utility(data, action)
-            stakeholder_wellbeing = self.get_stakeholder_wellbeing_utility(data, action)
-            autonomy = self.get_driver_autonomy_utility(data, action)
-            self.output[action] = {self.output_names[0]: social_utility, self.output_names[1]: stakeholder_wellbeing, self.output_names[2]: autonomy}
+            logger.info('Testing action: ' + action.value)
 
-    def get_social_behaviour_utility(self, data, action):
+            logger.info('Calculating social behaviour utility ')
+            social_utility = self.get_social_behaviour_utility(data, action, logger)
+            logger.info('Social utility for action ' + str(action.value) + ': ' + str(social_utility))
+
+            logger.info('Calculating stakeholder wellbeing utility')
+            stakeholder_wellbeing = self.get_stakeholder_wellbeing_utility(data, action, logger)
+            logger.info('Stakeholder wellbeing utility for action ' + str(action.value) + ': ' + str(stakeholder_wellbeing))
+
+            logger.info('Calculating user autonomy utility')
+            autonomy = self.get_driver_autonomy_utility(data, action, logger)
+            logger.info('User autonomy utility for action ' + str(action.value) + ': ' + str(autonomy))
+
+            self.output[action] = {self.output_names[0]: social_utility, self.output_names[1]: stakeholder_wellbeing, self.output_names[2]: autonomy}
+        logger.info(__name__ + ' finished.')
+
+    def get_social_behaviour_utility(self, data, action, logger):
         if action.value == 'take_control':
             return 1
         driver_data = self.get_driver(data)
@@ -22,7 +35,8 @@ class UtilitarianTest(ethical_test.EthicalTest):
         else:
             return 1
 
-    def get_stakeholder_wellbeing_utility(self, data, action):
+
+    def get_stakeholder_wellbeing_utility(self, data, action, logger):
         envir_data = data.get_environment_data()
         diff_speed = (envir_data['vehicle_speed'] - envir_data['speed_limit']) if (
                 envir_data['vehicle_speed'] > envir_data['speed_limit']) else None
@@ -68,7 +82,7 @@ class UtilitarianTest(ethical_test.EthicalTest):
 
         return safety
 
-    def get_driver_autonomy_utility(self, data, action):
+    def get_driver_autonomy_utility(self, data, action, logger):
         driver_data = self.get_driver(data)
         if (action.value == 'take_control') and (driver_data[0] != 'robot'):
             return -1

@@ -1,0 +1,51 @@
+2022-02-26 00:25:53,790 - blackboard - Loaded the data to the blackboard.
+2022-02-26 00:25:53,793 - data_structure - 
+          obedience user_safety robot_safety desirability_score
+[4, 1]          NaN         NaN          NaN                NaN
+[2, 4.5]        NaN         NaN          NaN                NaN
+[3, 4.25]       NaN         NaN          NaN                NaN
+2022-02-26 00:25:53,795 - blackboard - Starting tests...
+2022-02-26 00:25:53,795 - blackboard - Running Utilitarian test.
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Running blackboard.ethicaltests.obedience_utilitarian_test...
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Testing action: [4, 1]
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Simulating action..
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Harm to human detected.
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - simulation_completed
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - User safety utility for action [4, 1]: 0
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Robot safety utility for action [4, 1]: 1
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Robot obedience utility for action [4, 1]: 1
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Testing action: [2, 4.5]
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Simulating action..
+2022-02-26 00:25:53,795 - obedience_utilitarian_test - Harm to human detected.
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Robot disobedience event detected.
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - simulation_completed
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - User safety utility for action [2, 4.5]: 0
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Robot safety utility for action [2, 4.5]: 1
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Robot obedience utility for action [2, 4.5]: -1
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Testing action: [3, 4.25]
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Simulating action..
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Robot disobedience event detected.
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - simulation_completed
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - User safety utility for action [3, 4.25]: 1
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Robot safety utility for action [3, 4.25]: 1
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - Robot obedience utility for action [3, 4.25]: -1
+2022-02-26 00:25:53,796 - obedience_utilitarian_test - blackboard.ethicaltests.obedience_utilitarian_test finished.
+2022-02-26 00:25:53,797 - blackboard - Blackboard updated with Utilitarian test results.
+2022-02-26 00:25:53,799 - data_structure - 
+          obedience user_safety robot_safety desirability_score
+[4, 1]            1           0            1                NaN
+[2, 4.5]         -1           0            1                NaN
+[3, 4.25]        -1           1            1                NaN
+2022-02-26 00:25:53,799 - blackboard - Testing completed.
+2022-02-26 00:25:53,799 - blackboard - Calling the final evaluator.
+2022-02-26 00:25:53,799 - obedience_utilitarian_evaluator - blackboard.evaluator.obedience_utilitarian_evaluator started evaluation using the data in the blackboard.
+2022-02-26 00:25:53,800 - obedience_utilitarian_evaluator - Desirability of action [4, 1] : 1.75
+2022-02-26 00:25:53,800 - obedience_utilitarian_evaluator - Desirability of action [2, 4.5] : -0.25
+2022-02-26 00:25:53,801 - obedience_utilitarian_evaluator - Desirability of action [3, 4.25] : 2.75
+2022-02-26 00:25:53,801 - blackboard - Evaluation completed.
+2022-02-26 00:25:53,803 - data_structure - 
+          obedience user_safety robot_safety desirability_score
+[4, 1]            1           0            1               1.75
+[2, 4.5]         -1           0            1              -0.25
+[3, 4.25]        -1           1            1               2.75
+2022-02-26 00:25:53,803 - blackboard - Recommended actions: [[3, 4.25]]

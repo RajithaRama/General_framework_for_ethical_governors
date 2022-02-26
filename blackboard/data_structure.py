@@ -23,7 +23,7 @@ class Data:
         for key in conf["tests"].keys():
             columns.append(conf["tests"][key]["output_names"])
         columns = [item for sublist in columns for item in sublist]
-        columns.append('score')
+        columns.append('desirability_score')
 
         self._table_df = pd.DataFrame(columns=columns, index=self._actions)
         # print(self._table_df)

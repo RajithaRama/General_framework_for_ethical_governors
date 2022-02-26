@@ -1,6 +1,5 @@
 import yaml
-from data_loader import loader
-
+import blackboard.loader.loader as loader
 # import loader
 
 
