@@ -17,24 +17,28 @@ class UtilitarianTest(ethical_test.EthicalTest):
 
             logger.info('Calculating stakeholder wellbeing utility')
             stakeholder_wellbeing = self.get_stakeholder_wellbeing_utility(data, action, logger)
-            logger.info('Stakeholder wellbeing utility for action ' + str(action.value) + ': ' + str(stakeholder_wellbeing))
+            logger.info(
+                'Stakeholder wellbeing utility for action ' + str(action.value) + ': ' + str(stakeholder_wellbeing))
 
             logger.info('Calculating user autonomy utility')
             autonomy = self.get_driver_autonomy_utility(data, action, logger)
             logger.info('User autonomy utility for action ' + str(action.value) + ': ' + str(autonomy))
 
-            self.output[action] = {self.output_names[0]: social_utility, self.output_names[1]: stakeholder_wellbeing, self.output_names[2]: autonomy}
+            self.output[action] = {self.output_names[0]: social_utility, self.output_names[1]: stakeholder_wellbeing,
+                                   self.output_names[2]: autonomy}
         logger.info(__name__ + ' finished.')
 
     def get_social_behaviour_utility(self, data, action, logger):
         if action.value == 'take_control':
             return 1
         driver_data = self.get_driver(data)
-        if data.get_table_data(action, 'is_rule_broken') or not driver_data[1]:
+        logger.info("Getting rule breaking info for action " + str(action.value) + " from the table.")
+        if data.get_table_data(action, 'is_rule_broken') and not driver_data[1]:
             return -1
+        elif data.get_table_data(action, 'is_rule_broken') and driver_data[1]:
+            return -0.5
         else:
             return 1
-
 
     def get_stakeholder_wellbeing_utility(self, data, action, logger):
         envir_data = data.get_environment_data()
@@ -43,8 +47,6 @@ class UtilitarianTest(ethical_test.EthicalTest):
         driver_data = self.get_driver(data)
         passenger_data = self.get_passengers(data)
         safety = 0
-        if driver_data[0] != 'robot' and action.value == "take_control":
-            return 1
 
         if (driver_data[1] > 0) and (driver_data[2] > 0):
             if diff_speed is None:
@@ -73,12 +75,15 @@ class UtilitarianTest(ethical_test.EthicalTest):
         if (driver_data[1] > 0) and not passenger_health and envir_data['destination'] == 'hospital':
             if diff_speed is None:
                 safety = 1
-            elif diff_speed < 10:
-                safety = 1
             elif diff_speed < 20:
+                safety = 1
+            elif diff_speed < 40:
                 safety = 0
             else:
                 safety = -2
+
+        if driver_data[0] != 'robot' and action.value == "take_control":
+            safety = 1
 
         return safety
 

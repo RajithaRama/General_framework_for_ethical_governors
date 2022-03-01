@@ -6,7 +6,7 @@ class RoundRobin(scheduler.Scheduler):
     def __init__(self, conf):
         self.order = conf["test_order"]
 
-    def next(self):
+    def next(self, data):
         for item in self.order:
             yield item
 

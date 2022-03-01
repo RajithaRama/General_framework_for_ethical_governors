@@ -1,28 +1,28 @@
-2022-02-26 00:23:14,360 - blackboard - Loaded the data to the blackboard.
-2022-02-26 00:23:14,363 - data_structure - 
+2022-03-01 22:18:31,360 - blackboard - Loaded the data to the blackboard.
+2022-03-01 22:18:31,362 - data_structure - 
           is_breaking_rule breaking_rule_ids desirability_score
 lying                  NaN               NaN                NaN
 not lying              NaN               NaN                NaN
-2022-02-26 00:23:14,365 - blackboard - Starting tests...
-2022-02-26 00:23:14,366 - blackboard - Running Deontology test.
-2022-02-26 00:23:14,366 - lying_deontology_test - Running blackboard.ethicaltests.lying_deontology_test...
-2022-02-26 00:23:14,366 - lying_deontology_test - Testing action: lying
-2022-02-26 00:23:14,366 - lying_deontology_test - Action "lying" : Not permissible since it broke rule(s) [1]
-2022-02-26 00:23:14,366 - lying_deontology_test - Testing action: not lying
-2022-02-26 00:23:14,366 - lying_deontology_test - Action "not lying" : Permissible
-2022-02-26 00:23:14,367 - blackboard - Blackboard updated with Deontology test results.
-2022-02-26 00:23:14,370 - data_structure - 
+2022-03-01 22:18:31,364 - blackboard - Starting tests...
+2022-03-01 22:18:31,366 - blackboard - Running Deontology test.
+2022-03-01 22:18:31,366 - lying_deontology_test - Running blackboard.ethicaltests.lying_deontology_test...
+2022-03-01 22:18:31,366 - lying_deontology_test - Testing action: lying
+2022-03-01 22:18:31,366 - lying_deontology_test - Action "lying" : Not permissible since it broke rule(s) [1]
+2022-03-01 22:18:31,366 - lying_deontology_test - Testing action: not lying
+2022-03-01 22:18:31,366 - lying_deontology_test - Action "not lying" : Permissible
+2022-03-01 22:18:31,367 - blackboard - Blackboard updated with Deontology test results.
+2022-03-01 22:18:31,369 - data_structure - 
           is_breaking_rule breaking_rule_ids desirability_score
 lying                 True               [1]                NaN
 not lying            False                []                NaN
-2022-02-26 00:23:14,370 - blackboard - Testing completed.
-2022-02-26 00:23:14,370 - blackboard - Calling the final evaluator.
-2022-02-26 00:23:14,370 - lying_deontology_evaluator - blackboard.evaluator.lying_deontology_evaluator started evaluation using the data in the blackboard.
-2022-02-26 00:23:14,371 - lying_deontology_evaluator - Desirability of action lying : 0
-2022-02-26 00:23:14,371 - lying_deontology_evaluator - Desirability of action not lying : 1
-2022-02-26 00:23:14,372 - blackboard - Evaluation completed.
-2022-02-26 00:23:14,374 - data_structure - 
+2022-03-01 22:18:31,369 - blackboard - Testing completed.
+2022-03-01 22:18:31,369 - blackboard - Calling the final evaluator.
+2022-03-01 22:18:31,369 - lying_deontology_evaluator - blackboard.evaluator.lying_deontology_evaluator started evaluation using the data in the blackboard.
+2022-03-01 22:18:31,370 - lying_deontology_evaluator - Desirability of action lying : 0
+2022-03-01 22:18:31,370 - lying_deontology_evaluator - Desirability of action not lying : 1
+2022-03-01 22:18:31,370 - blackboard - Evaluation completed.
+2022-03-01 22:18:31,372 - data_structure - 
           is_breaking_rule breaking_rule_ids desirability_score
 lying                 True               [1]                  0
 not lying            False                []                  1
-2022-02-26 00:23:14,375 - blackboard - Recommended actions: ['not lying']
+2022-03-01 22:18:31,373 - blackboard - Recommended actions: ['not lying']

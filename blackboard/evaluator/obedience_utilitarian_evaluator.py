@@ -14,8 +14,8 @@ class UtilitarianEvaluator(evaluator.Evaluator):
                 desirability = data.get_table_data(action, "obedience") + 0.75 * data.get_table_data(action,
                                                                                                      "robot_safety")
             else:
-                desirability = 2 * data.get_table_data(action, "user_safety") + 0.75 * data.get_table_data(action,
-                                                                                                           "robot_safety")
+                desirability = 2 * data.get_table_data(action, "user_safety") + 0.75 * (data.get_table_data(action,
+                                                                                                           "robot_safety") + data.get_table_data(action, "obedience"))
             logger.info('Desirability of action ' + str(action.value) + ' : ' + str(desirability))
             self.score[action] = desirability
 

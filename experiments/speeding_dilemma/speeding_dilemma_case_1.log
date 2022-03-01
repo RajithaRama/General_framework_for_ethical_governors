@@ -1,5 +1,5 @@
-2022-02-26 00:31:05,568 - blackboard - Loaded the data to the blackboard.
-2022-02-26 00:31:05,571 - data_structure - 
+2022-03-01 22:18:20,191 - blackboard - Loaded the data to the blackboard.
+2022-03-01 22:18:20,194 - data_structure - 
              is_rule_broken broken_rules social stakeholder_wellbeing  \
 None                    NaN          NaN    NaN                   NaN   
 take_control            NaN          NaN    NaN                   NaN   
@@ -7,16 +7,16 @@ take_control            NaN          NaN    NaN                   NaN
              driver_autonomy desirability_score  
 None                     NaN                NaN  
 take_control             NaN                NaN  
-2022-02-26 00:31:05,572 - blackboard - Starting tests...
-2022-02-26 00:31:05,574 - blackboard - Running Deontological test.
-2022-02-26 00:31:05,574 - road_rule_test - Running blackboard.ethicaltests.road_rule_test...
-2022-02-26 00:31:05,574 - road_rule_test - Testing action: None
-2022-02-26 00:31:05,574 - road_rule_test - Action "None" : Not permissible since it broke rules [1]
-2022-02-26 00:31:05,574 - road_rule_test - Testing action: take_control
-2022-02-26 00:31:05,574 - road_rule_test - Action "take_control" : Permissible
-2022-02-26 00:31:05,574 - road_rule_test - blackboard.ethicaltests.road_rule_test finished.
-2022-02-26 00:31:05,575 - blackboard - Blackboard updated with Deontological test results.
-2022-02-26 00:31:05,578 - data_structure - 
+2022-03-01 22:18:20,195 - blackboard - Starting tests...
+2022-03-01 22:18:20,197 - blackboard - Running Deontological test.
+2022-03-01 22:18:20,197 - road_rule_test - Running blackboard.ethicaltests.road_rule_test...
+2022-03-01 22:18:20,197 - road_rule_test - Testing action: None
+2022-03-01 22:18:20,197 - road_rule_test - Action "None" : Not permissible since it broke rules [1]
+2022-03-01 22:18:20,197 - road_rule_test - Testing action: take_control
+2022-03-01 22:18:20,197 - road_rule_test - Action "take_control" : Permissible
+2022-03-01 22:18:20,197 - road_rule_test - blackboard.ethicaltests.road_rule_test finished.
+2022-03-01 22:18:20,198 - blackboard - Blackboard updated with Deontological test results.
+2022-03-01 22:18:20,201 - data_structure - 
              is_rule_broken broken_rules social stakeholder_wellbeing  \
 None                   True          [1]    NaN                   NaN   
 take_control          False           []    NaN                   NaN   
@@ -24,44 +24,45 @@ take_control          False           []    NaN                   NaN
              driver_autonomy desirability_score  
 None                     NaN                NaN  
 take_control             NaN                NaN  
-2022-02-26 00:31:05,578 - blackboard - Running Utilitarian test.
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Running blackboard.ethicaltests.speeding_utilitarian_test...
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Testing action: None
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Calculating social behaviour utility 
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Social utility for action None: -1
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Calculating stakeholder wellbeing utility
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Stakeholder wellbeing utility for action None: -2
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Calculating user autonomy utility
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - User autonomy utility for action None: 1
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Testing action: take_control
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Calculating social behaviour utility 
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Social utility for action take_control: 1
-2022-02-26 00:31:05,579 - speeding_utilitarian_test - Calculating stakeholder wellbeing utility
-2022-02-26 00:31:05,580 - speeding_utilitarian_test - Stakeholder wellbeing utility for action take_control: 1
-2022-02-26 00:31:05,580 - speeding_utilitarian_test - Calculating user autonomy utility
-2022-02-26 00:31:05,580 - speeding_utilitarian_test - User autonomy utility for action take_control: -1
-2022-02-26 00:31:05,580 - speeding_utilitarian_test - blackboard.ethicaltests.speeding_utilitarian_test finished.
-2022-02-26 00:31:05,580 - blackboard - Blackboard updated with Utilitarian test results.
-2022-02-26 00:31:05,584 - data_structure - 
+2022-03-01 22:18:20,201 - blackboard - Running Utilitarian test.
+2022-03-01 22:18:20,201 - speeding_utilitarian_test - Running blackboard.ethicaltests.speeding_utilitarian_test...
+2022-03-01 22:18:20,201 - speeding_utilitarian_test - Testing action: None
+2022-03-01 22:18:20,201 - speeding_utilitarian_test - Calculating social behaviour utility 
+2022-03-01 22:18:20,201 - speeding_utilitarian_test - Getting rule breaking info for action None from the table.
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Social utility for action None: -0.5
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Calculating stakeholder wellbeing utility
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Stakeholder wellbeing utility for action None: 1
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Calculating user autonomy utility
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - User autonomy utility for action None: 1
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Testing action: take_control
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Calculating social behaviour utility 
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Social utility for action take_control: 1
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Calculating stakeholder wellbeing utility
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Stakeholder wellbeing utility for action take_control: 1
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - Calculating user autonomy utility
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - User autonomy utility for action take_control: -1
+2022-03-01 22:18:20,202 - speeding_utilitarian_test - blackboard.ethicaltests.speeding_utilitarian_test finished.
+2022-03-01 22:18:20,203 - blackboard - Blackboard updated with Utilitarian test results.
+2022-03-01 22:18:20,206 - data_structure - 
              is_rule_broken broken_rules social stakeholder_wellbeing  \
-None                   True          [1]     -1                    -2   
+None                   True          [1]   -0.5                     1   
 take_control          False           []      1                     1   
 
              driver_autonomy desirability_score  
 None                       1                NaN  
 take_control              -1                NaN  
-2022-02-26 00:31:05,584 - blackboard - Testing completed.
-2022-02-26 00:31:05,584 - blackboard - Calling the final evaluator.
-2022-02-26 00:31:05,584 - utilitarian_speeding_evaluator - blackboard.evaluator.utilitarian_speeding_evaluator started evaluation using the data in the blackboard.
-2022-02-26 00:31:05,585 - utilitarian_speeding_evaluator - Desirability of action None : -2
-2022-02-26 00:31:05,585 - utilitarian_speeding_evaluator - Desirability of action take_control : 2.25
-2022-02-26 00:31:05,586 - blackboard - Evaluation completed.
-2022-02-26 00:31:05,589 - data_structure - 
+2022-03-01 22:18:20,206 - blackboard - Testing completed.
+2022-03-01 22:18:20,206 - blackboard - Calling the final evaluator.
+2022-03-01 22:18:20,206 - utilitarian_speeding_evaluator - blackboard.evaluator.utilitarian_speeding_evaluator started evaluation using the data in the blackboard.
+2022-03-01 22:18:20,207 - utilitarian_speeding_evaluator - Desirability of action None : 1.5
+2022-03-01 22:18:20,208 - utilitarian_speeding_evaluator - Desirability of action take_control : 1.25
+2022-03-01 22:18:20,208 - blackboard - Evaluation completed.
+2022-03-01 22:18:20,211 - data_structure - 
              is_rule_broken broken_rules social stakeholder_wellbeing  \
-None                   True          [1]     -1                    -2   
+None                   True          [1]   -0.5                     1   
 take_control          False           []      1                     1   
 
              driver_autonomy desirability_score  
-None                       1                 -2  
-take_control              -1               2.25  
-2022-02-26 00:31:05,589 - blackboard - Recommended actions: ['take_control']
+None                       1                1.5  
+take_control              -1               1.25  
+2022-03-01 22:18:20,211 - blackboard - Recommended actions: ['None']

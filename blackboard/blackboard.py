@@ -60,7 +60,7 @@ class Blackboard:
 
     def run_tests(self):
         self.process_logger.info('Starting tests...')
-        for test in self.scheduler.next():
+        for test in self.scheduler.next(self.data):
             test_class = getattr(self.test_modules[test], self.conf["tests"][test]["class_name"])
             test_i = test_class(self.conf["tests"][test])
             self.process_logger.info('Running ' + test + ' test.')

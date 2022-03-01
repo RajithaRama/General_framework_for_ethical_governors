@@ -1,4 +1,4 @@
-Environment: {vehicle_speed: 70, speed_limit: 50, no_of_passengers: 1, time: day,  destination: hospital}
+Environment: {vehicle_speed: 60, speed_limit: 50, no_of_passengers: 1, time: day,  destination: hospital}
 Stakeholders: 
   stakeholder_1: [driver, 1, 1, on_control] # [type, attention, health, state]
   stakeholder_2: [passenger, 0, 0, idle]
