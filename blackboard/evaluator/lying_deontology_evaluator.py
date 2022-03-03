@@ -14,4 +14,3 @@ class DeontologyEvaluator(evaluator.Evaluator):
             else:
                 self.score[action] = 1
             logger.info('Desirability of action ' + str(action.value) + ' : ' + str(self.score[action]))
-        # print("evaluated")

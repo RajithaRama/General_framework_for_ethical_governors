@@ -1,51 +1,51 @@
-2022-03-01 22:18:25,173 - blackboard - Loaded the data to the blackboard.
-2022-03-01 22:18:25,177 - data_structure - 
+2022-03-03 00:39:18,632 - blackboard - Loaded the data to the blackboard.
+2022-03-03 00:39:18,634 - data_structure - 
           obedience user_safety robot_safety desirability_score
 [4, 1]          NaN         NaN          NaN                NaN
 [2, 4.5]        NaN         NaN          NaN                NaN
 [3, 4.25]       NaN         NaN          NaN                NaN
-2022-03-01 22:18:25,179 - blackboard - Starting tests...
-2022-03-01 22:18:25,179 - blackboard - Running Utilitarian test.
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Running blackboard.ethicaltests.obedience_utilitarian_test...
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Testing action: [4, 1]
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Simulating action..
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Harm to human detected.
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - simulation_completed
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - User safety utility for action [4, 1]: 0
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Robot safety utility for action [4, 1]: 1
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Robot obedience utility for action [4, 1]: 1
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Testing action: [2, 4.5]
-2022-03-01 22:18:25,179 - obedience_utilitarian_test - Simulating action..
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Harm to human detected.
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Robot disobedience event detected.
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - simulation_completed
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - User safety utility for action [2, 4.5]: 0
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Robot safety utility for action [2, 4.5]: 1
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Robot obedience utility for action [2, 4.5]: -1
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Testing action: [3, 4.25]
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Simulating action..
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Robot disobedience event detected.
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - simulation_completed
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - User safety utility for action [3, 4.25]: 1
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Robot safety utility for action [3, 4.25]: 1
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - Robot obedience utility for action [3, 4.25]: -1
-2022-03-01 22:18:25,180 - obedience_utilitarian_test - blackboard.ethicaltests.obedience_utilitarian_test finished.
-2022-03-01 22:18:25,181 - blackboard - Blackboard updated with Utilitarian test results.
-2022-03-01 22:18:25,183 - data_structure - 
+2022-03-03 00:39:18,636 - blackboard - Starting tests...
+2022-03-03 00:39:18,636 - blackboard - Running Utilitarian test.
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - Running blackboard.ethicaltests.obedience_utilitarian_test...
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - Testing action: [4, 1]
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - Simulating action..
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - Harm to human detected.
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - simulation_completed
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - User safety utility for action [4, 1]: 0
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - Robot safety utility for action [4, 1]: 1
+2022-03-03 00:39:18,636 - obedience_utilitarian_test - Robot obedience utility for action [4, 1]: 1
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Testing action: [2, 4.5]
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Simulating action..
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Harm to human detected.
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Robot disobedience event detected.
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - simulation_completed
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - User safety utility for action [2, 4.5]: 0
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Robot safety utility for action [2, 4.5]: 1
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Robot obedience utility for action [2, 4.5]: -1
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Testing action: [3, 4.25]
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Simulating action..
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Robot disobedience event detected.
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - simulation_completed
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - User safety utility for action [3, 4.25]: 1
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Robot safety utility for action [3, 4.25]: 1
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - Robot obedience utility for action [3, 4.25]: -1
+2022-03-03 00:39:18,637 - obedience_utilitarian_test - blackboard.ethicaltests.obedience_utilitarian_test finished.
+2022-03-03 00:39:18,638 - blackboard - Blackboard updated with Utilitarian test results.
+2022-03-03 00:39:18,640 - data_structure - 
           obedience user_safety robot_safety desirability_score
 [4, 1]            1           0            1                NaN
 [2, 4.5]         -1           0            1                NaN
 [3, 4.25]        -1           1            1                NaN
-2022-03-01 22:18:25,183 - blackboard - Testing completed.
-2022-03-01 22:18:25,183 - blackboard - Calling the final evaluator.
-2022-03-01 22:18:25,183 - obedience_utilitarian_evaluator - blackboard.evaluator.obedience_utilitarian_evaluator started evaluation using the data in the blackboard.
-2022-03-01 22:18:25,184 - obedience_utilitarian_evaluator - Desirability of action [4, 1] : 1.75
-2022-03-01 22:18:25,184 - obedience_utilitarian_evaluator - Desirability of action [2, 4.5] : -0.25
-2022-03-01 22:18:25,185 - obedience_utilitarian_evaluator - Desirability of action [3, 4.25] : 2.0
-2022-03-01 22:18:25,185 - blackboard - Evaluation completed.
-2022-03-01 22:18:25,188 - data_structure - 
+2022-03-03 00:39:18,640 - blackboard - Testing completed.
+2022-03-03 00:39:18,640 - blackboard - Calling the final evaluator.
+2022-03-03 00:39:18,640 - obedience_utilitarian_evaluator - blackboard.evaluator.obedience_utilitarian_evaluator started evaluation using the data in the blackboard.
+2022-03-03 00:39:18,641 - obedience_utilitarian_evaluator - Desirability of action [4, 1] : 1.75
+2022-03-03 00:39:18,641 - obedience_utilitarian_evaluator - Desirability of action [2, 4.5] : -0.25
+2022-03-03 00:39:18,642 - obedience_utilitarian_evaluator - Desirability of action [3, 4.25] : 2.0
+2022-03-03 00:39:18,642 - blackboard - Evaluation completed.
+2022-03-03 00:39:18,644 - data_structure - 
           obedience user_safety robot_safety desirability_score
 [4, 1]            1           0            1               1.75
 [2, 4.5]         -1           0            1              -0.25
 [3, 4.25]        -1           1            1                2.0
-2022-03-01 22:18:25,188 - blackboard - Recommended actions: [[3, 4.25]]
+2022-03-03 00:39:18,644 - blackboard - Recommended actions: [[3, 4.25]]

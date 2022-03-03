@@ -1,8 +1,0 @@
-data_loader: {module_name: yaml_loader, class_name: YAMLLoader}
-tests:
-  Deontology: { module_name: lying_deontology_test, class_name: ActDeontologyTest, number_of_outputs: 2, output_names: [is_breaking_rule, breaking_rule_ids]}
-test_order:
-  - Deontology
-evaluator: {module_name: lying_deontology_evaluator, class_name: DeontologyEvaluator}
-scheduler: {module_name: round_robin_scheduler, class_name: RoundRobin}
-log_file: lying_dilemma_case_1.log

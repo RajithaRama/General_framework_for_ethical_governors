@@ -43,12 +43,6 @@ class Data:
     def get_other_inputs(self):
         return self._other_inputs
 
-    # def put_table_data(self, results):
-    #     for action, values in results.items():
-    #         for column, value in values.items():
-    #             self.table_df.loc[action, column] = value
-    #     return
-
     def put_table_data(self, action, column, value):
         self._table_df.loc[action, column] = value
 

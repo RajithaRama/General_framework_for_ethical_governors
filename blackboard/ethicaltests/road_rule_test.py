@@ -1,4 +1,3 @@
-# from typing import List
 import blackboard.ethicaltests.ethical_test as ethical_test
 import yaml
 import os

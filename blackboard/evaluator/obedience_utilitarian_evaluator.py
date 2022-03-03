@@ -19,4 +19,3 @@ class UtilitarianEvaluator(evaluator.Evaluator):
             logger.info('Desirability of action ' + str(action.value) + ' : ' + str(desirability))
             self.score[action] = desirability
 
-        # print("evaluated")
