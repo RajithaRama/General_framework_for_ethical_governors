@@ -2,4 +2,4 @@
 
 We introduce a blackboard inspired general framework for ethical governors that can be used in different kinds of autonomous systems with only a few modifications.
 
-Examples can be found under the /examples directory.
+Examples can be found under the /experiments directory.
